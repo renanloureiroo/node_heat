@@ -7,6 +7,7 @@ import { Server } from "socket.io"
 import { router } from "./routes"
 
 const app = express()
+
 app.use(cors())
 
 const serverHttp = http.createServer(app)
@@ -37,6 +38,4 @@ app.get("/signin/callback", (request, response) => {
   return response.json(code)
 })
 
-serverHttp.listen(4000, () =>
-  console.log("Server running http://localhost:4000")
-)
+export { serverHttp, io }
